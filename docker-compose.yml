@@ -5,14 +5,16 @@ services:
     container_name: app
     restart: always
     ports:
-      - 8000:8000
+      - ${APP_PORT}:8000
     networks:
       - default
 
 networks:
   default:
+    name: docker_python_fastapi_network
     driver: bridge
 
 volumes:
   data:
+    name: docker_python_fastapi_data
     driver: local
